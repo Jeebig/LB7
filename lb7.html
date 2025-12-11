@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ЛБ7 — Стрілочна функція та Function declaration</title>
+    <link rel="stylesheet" href="lb7.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>I. Створення стрілочної функції</h2>
+        <p>Розрахунок суми двох параметрів <code>a</code> і <code>b</code> з виводом у контейнер
+            <code>&lt;task1&gt;</code>.
+        </p>
+
+        <div class="row">
+            <label for="a">a</label>
+            <input id="a" type="number" placeholder="Введіть a">
+            <label for="b">b</label>
+            <input id="b" type="number" placeholder="Введіть b">
+            <button id="sumBtn" type="button">Обчислити суму</button>
+        </div>
+
+        <task1>
+            <p id="sumResult">Результат з'явиться тут.</p>
+        </task1>
+    </div>
+
+    <div class="container">
+        <h2>II. Створення функції Function declaration</h2>
+        <p>Додавання елементу у тег <code>&lt;task2&gt;</code> при натисканні на кнопку.</p>
+
+        <div class="row">
+            <button id="addCircleBtn" type="button">Додати коло</button>
+        </div>
+        <task2 id="task2"></task2>
+    </div>
+
+    <script>
+        const inputA = document.querySelector('#a');
+        const inputB = document.querySelector('#b');
+        const sumBtn = document.querySelector('#sumBtn');
+        const sumResultP = document.querySelector('#sumResult');
+
+        sumBtn.addEventListener('click', () => {
+            const a = Number(inputA.value);
+            const b = Number(inputB.value);
+            const c = a + b;
+            sumResultP.innerHTML = `Сума: ${isNaN(c) ? '—' : c}`;
+        });
+
+        const addCircleBtn = document.querySelector('#addCircleBtn');
+        const task2 = document.querySelector('#task2');
+
+        function addCircle() {
+            const newCircle = document.createElement('div');
+            newCircle.classList.add('circle');
+            task2.appendChild(newCircle);
+        }
+
+        addCircleBtn.addEventListener('click', addCircle);
+    </script>
+</body>
+
+</html>
